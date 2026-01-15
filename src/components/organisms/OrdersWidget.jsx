@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ShoppingCart, PackageX, Truck, RefreshCcw } from 'lucide-react';
 import { Card, CardTitle } from '../atoms/Card';
 import { StatItem } from '../molecules/StatItem';
-
+// Widget wyświetlający podsumowanie zamówień
 const OrdersWidget = () => {
   const { t } = useTranslation();
   return (

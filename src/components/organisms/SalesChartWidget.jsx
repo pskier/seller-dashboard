@@ -14,13 +14,13 @@ const data = [
   { name: 'Sb', value: 2390 },
   { name: 'Nd', value: 3490 },
 ];
-
+// Widget wyświetlający wykres sprzedaży
 const SalesChartWidget = () => {
   const { t } = useTranslation();
   const theme = useContext(ThemeContext); 
 
   return (
-    <Card style={{ gridColumn: '1 / -1' }}>
+    <Card>
       <CardTitle><BarChart3 size={20}/> {t('chart')}</CardTitle>
       <div style={{ height: 300, width: '100%' }}>
         <ResponsiveContainer>

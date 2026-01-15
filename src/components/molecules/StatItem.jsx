@@ -21,7 +21,7 @@ const Value = styled.span`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.text};
 `;
-
+// Element statystyki z etykietą, wartością i opcjonalną ikoną
 export const StatItem = ({ label, value, icon: Icon }) => (
   <Container>
     {Icon && <Icon size={20} style={{ marginBottom: 8, opacity: 0.7 }} />}

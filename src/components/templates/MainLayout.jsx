@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Home, ShoppingCart, Star, BarChart2, Lightbulb, LogOut } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+// Układ główny aplikacji z paskiem bocznym nawigacyjnym
 const Layout = styled.div`
   display: flex;
   height: 100vh;

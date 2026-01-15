@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Moon, Sun, Globe, User } from 'lucide-react';
 
+// Nagłówek aplikacji z przełącznikami języka i motywu
 const HeaderContainer = styled.header`
   height: 64px;
   background: ${({ theme }) => theme.colors.surface};
