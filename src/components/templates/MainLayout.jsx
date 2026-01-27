@@ -1,59 +1,129 @@
 import styled from 'styled-components';
-import { Home, ShoppingCart, Star, BarChart2, Lightbulb, LogOut } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Home, ShoppingCart, Star, LogOut } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import Header from '../organisms/Header';
+import { useTranslation } from 'react-i18next'; 
+import logoBtn from '../../assets/logo.png';
 
-const Layout = styled.div`
+import { MenuItem } from '../molecules/MenuItem'; 
+
+const LayoutWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   height: 100vh;
   background: ${({ theme }) => theme.colors.bg};
-  color: ${({ theme }) => theme.colors.text};
+  padding: 16px;
+  gap: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
 `;
 
-const Sidebar = styled.aside`
+const BodyContainer = styled.div`
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  overflow: hidden;
+`;
+
+const SidebarCard = styled.aside`
   width: 260px;
   background: ${({ theme }) => theme.colors.surface};
-  border-right: 1px solid ${({ theme }) => theme.colors.border};
-  padding: 24px;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+`;
+
+const LogoSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+  gap: 16px;
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: ${({ theme }) => theme.colors.text};
+  }
+`;
+
+const LogoImage = styled.img`
+  width: 64px;       
+  height: 64px;       
+  object-fit: contain; 
+  margin-bottom: 8px;
+`;
+
+const MenuList = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
 
-const MenuItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  color: ${props => props.$active ? props.theme.colors.primary : props.theme.colors.textSecondary};
-  background: ${props => props.$active ? props.theme.colors.bg : 'transparent'};
-  font-weight: ${props => props.$active ? 600 : 400};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.bg};
-  }
+const ContentArea = styled.main`
+  flex: 1;
+  overflow-y: auto;
+  border-radius: 16px;
+  /* Opcjonalnie: ukrycie paska przewijania, jeśli chcesz */
+  &::-webkit-scrollbar { width: 0px; }
 `;
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, toggleTheme, themeMode }) => {
+  const location = useLocation();
   const { t } = useTranslation();
-  
+
   return (
-    <Layout>
-      <Sidebar>
-        <h1 style={{fontSize: 20, marginBottom: 32}}>Portal Sprzedawcy</h1>
-        <MenuItem $active><Home size={20}/> {t('dashboard')}</MenuItem>
-        <MenuItem><ShoppingCart size={20}/> {t('orders')}</MenuItem>
-        <MenuItem><Star size={20}/> {t('reviews')}</MenuItem>
-        <MenuItem><BarChart2 size={20}/> {t('quality')}</MenuItem>
-        <MenuItem><Lightbulb size={20}/> {t('tips')}</MenuItem>
-        <div style={{flex: 1}} />
-        <MenuItem><LogOut size={20}/> {t('logout')}</MenuItem>
-      </Sidebar>
-      <div style={{flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column'}}>
-        {children}
-      </div>
-    </Layout>
+    <LayoutWrapper>
+      <Header toggleTheme={toggleTheme} currentTheme={themeMode === 'light' ? {mode: 'light', colors: {}} : {mode: 'dark', colors: {}}} />
+
+      <BodyContainer>
+        <SidebarCard>
+          <div>
+            <LogoSection>
+               <LogoImage src={logoBtn} alt="Logo portalu" />
+               <h2>{t('portal_title')}</h2>
+            </LogoSection>
+
+             <MenuList>
+              <MenuItem 
+                to="/dashboard"
+                active={location.pathname === '/dashboard'}
+                icon={<Home size={22} />}
+                label={t('menu_home')}
+              />
+
+              <MenuItem 
+                to="/reviews"
+                active={location.pathname === '/reviews'}
+                icon={<Star size={22} />}
+                label={t('menu_reviews')}
+              />
+
+              <MenuItem 
+                to="/orders"
+                active={location.pathname === '/orders'}
+                icon={<ShoppingCart size={22} />}
+                label={t('menu_orders')}
+              />
+            </MenuList>
+          </div>
+
+          <MenuItem 
+            to="/login"
+            icon={<LogOut size={22} />}
+            label={t('menu_logout')}
+          />
+        </SidebarCard>
+
+        <ContentArea>
+          {children}
+        </ContentArea>
+      </BodyContainer>
+    </LayoutWrapper>
   );
 };
+
 export default MainLayout;

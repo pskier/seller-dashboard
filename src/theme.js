@@ -5,23 +5,25 @@ export const lightTheme = {
     surface: '#FFFFFF',
     text: '#111827',
     textSecondary: '#6B7280',
-    primary: '#2563EB',
     border: '#E5E7EB',
+    primary: '#2563EB',
     success: '#10B981',
-    danger: '#EF4444',
+    chartBar: '#2563EB', 
+    hover: '#F9FAFB'
   }
 };
 
 export const darkTheme = {
   mode: 'dark',
   colors: {
-    bg: '#111827',
-    surface: '#1F2937',
-    text: '#F9FAFB',
-    textSecondary: '#9CA3AF',
-    primary: '#3B82F6',
-    border: '#374151',
+    bg: '#111827',        
+    surface: '#1F2937',   
+    text: '#F9FAFB',      
+    textSecondary: '#9CA3AF', 
+    border: '#374151',    
+    primary: '#60A5FA',   
     success: '#34D399',
-    danger: '#F87171',
+    chartBar: '#3B82F6',  
+    hover: '#374151'
   }
 };
