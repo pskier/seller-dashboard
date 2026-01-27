@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// Uniwersalne kółko na ikonę/zdjęcie (używane w Opiniach i Rankingu)
 export const Avatar = styled.div`
   width: ${props => props.$size || '32px'};
   height: ${props => props.$size || '32px'};

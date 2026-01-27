@@ -7,7 +7,7 @@ import logoBtn from '../../assets/logo.png';
 
 import { MenuItem } from '../molecules/MenuItem'; 
 
-const Layout = styled.div`
+const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -67,7 +67,6 @@ const ContentArea = styled.main`
   flex: 1;
   overflow-y: auto;
   border-radius: 16px;
-  /* Opcjonalnie: ukrycie paska przewijania, jeśli chcesz */
   &::-webkit-scrollbar { width: 0px; }
 `;
 

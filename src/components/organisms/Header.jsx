@@ -5,48 +5,31 @@ import { IconButton } from '../atoms/IconButton';
 import { UserDropdown } from '../molecules/UserDropdown';
 
 const HeaderWrapper = styled.header`
-  /* Zmniejszyłem wysokość, żeby był zgrabniejszy */
-  height: 64px; 
+  height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px; /* Większy odstęp od treści */
-  padding: 0 8px;      /* Lekki padding boczny */
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 0 16px;
+
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: 16px; 
+  margin-bottom: 0px; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03); 
 `;
 
-const PageTitle = styled.h1`
-  font-size: 24px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.text};
-  margin: 0;
-`;
-
-const Actions = styled.div`
+const LangContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px; /* Odstęp między ikonami */
-`;
-
-const LangSwitch = styled.div`
-  display: flex; 
-  align-items: center;
-  margin-right: 8px;
+  gap: 6px;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 8px;
   border-radius: 8px;
-  transition: background 0.2s;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.surface};
-  }
-`;
-
-const LangLabel = styled.span`
-  font-size: 13px;
-  font-weight: 600;
   color: ${({ theme }) => theme.colors.text};
-  text-transform: uppercase;
-  margin-left: 6px; /* Tekst po prawej stronie ikony */
+  
+  &:hover {
+    background: ${({ theme }) => theme.colors.bg}; 
+  }
 `;
 
 const ACCOUNTS = [
@@ -56,7 +39,7 @@ const ACCOUNTS = [
 ];
 
 const Header = ({ toggleTheme, currentTheme }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'pl' ? 'en' : 'pl';
@@ -65,26 +48,20 @@ const Header = ({ toggleTheme, currentTheme }) => {
 
   return (
     <HeaderWrapper>
-      <PageTitle>Dashboard</PageTitle>
-
-      <Actions>
-        <LangSwitch onClick={toggleLanguage} title={t('change_lang')}>
-             <Globe size={20} color={currentTheme.mode === 'dark' ? '#fff' : '#333'} />
-             <LangLabel>{i18n.language}</LangLabel>
-        </LangSwitch>
-
-        <IconButton onClick={toggleTheme} title="Zmień motyw">
-          {currentTheme.mode === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-        </IconButton>
-
-        <div style={{ width: 1, height: 24, background: '#eee', margin: '0 8px' }} />
-
         <UserDropdown 
             accounts={ACCOUNTS}
             currentAccount={ACCOUNTS[0].id} 
-            onAccountChange={(e) => console.log('Zmiana konta:', e.target.value)}
+            onAccountChange={(e) => console.log(e.target.value)}
         />
-      </Actions>
+
+        <IconButton onClick={toggleTheme}>
+          {currentTheme.mode === 'light' ? <Moon size={20} strokeWidth={2} /> : <Sun size={20} />}
+        </IconButton>
+
+        <LangContainer onClick={toggleLanguage}>
+             <Globe size={20} strokeWidth={2} />
+        </LangContainer>
+
     </HeaderWrapper>
   );
 };
