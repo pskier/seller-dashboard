@@ -43,43 +43,7 @@ const SalesChartWidget = () => {
   const dataKeyPrev = measure === 'turnover' ? 'prevTurnover' : 'prevSold';
 
   return (
-    <Card>
-<<<<<<< HEAD
-      <CardTitle>{t('chart_title')}</CardTitle>
-        <ChartWrapper>
-        <ResponsiveContainer width="100%" height="100%">
-          {type === 'bar' ? (
-            <BarChart data={currentData} barGap={4}>
-               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme.colors.border} />
-               <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: theme.colors.textSecondary, fontSize: 12}} dy={10} />
-               <Tooltip contentStyle={{ backgroundColor: theme.colors.surface, borderRadius: 8, border: `1px solid ${theme.colors.border}` }} itemStyle={{ color: theme.colors.text }} />
-               
-               <Bar dataKey={dataKeyCurrent} radius={[4, 4, 0, 0]} name={t('chart_measure_' + measure)}>
-                  {currentData.map((entry, index) => (
-                      <Cell 
-                        key={`cell-${index}`} 
-                        fill={theme.colors.chartBar} 
-                        fillOpacity={index === currentData.length - 1 ? 0.6 : 1} 
-                        stroke={index === currentData.length - 1 ? theme.colors.chartBar : 'none'}
-                        strokeWidth={index === currentData.length - 1 ? 2 : 0}
-                        strokeDasharray="4 4"
-                      />
-                  ))}
-               </Bar>
-               
-               {compare && <Bar dataKey={dataKeyPrev} fill="#9CA3AF" radius={[4, 4, 0, 0]} name="Poprzedni okres" />}
-            </BarChart>
-          ) : (
-            <LineChart data={currentData}>
-               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme.colors.border} />
-               <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: theme.colors.textSecondary, fontSize: 12}} dy={10} />
-               <Tooltip contentStyle={{ backgroundColor: theme.colors.surface, borderRadius: 8, border: `1px solid ${theme.colors.border}` }} />
-               
-               <Line type="monotone" dataKey={dataKeyCurrent} stroke={theme.colors.chartBar} strokeWidth={3} dot={{r: 4}} name={t('chart_measure_' + measure)} />
-               {compare && <Line type="monotone" dataKey={dataKeyPrev} stroke="#9CA3AF" strokeWidth={2} strokeDasharray="5 5" dot={{r: 3}} name="Poprzedni okres" />}
-            </LineChart>
-          )}
-=======
+    <Card style={{ gridColumn: '1 / -1' }}>
       <CardTitle><BarChart3 size={20}/> {t('chart')}</CardTitle>
       <div style={{ height: 300, width: '100%' }}>
         <ResponsiveContainer>
@@ -91,7 +55,6 @@ const SalesChartWidget = () => {
             />
             <Area type="monotone" dataKey="value" stroke={theme.colors.primary} fill={theme.colors.primary} fillOpacity={0.1} />
           </AreaChart>
->>>>>>> ddec2de7455d0ac0ff32eea554bdb8a146744fb0
         </ResponsiveContainer>
       </ChartWrapper>
 
