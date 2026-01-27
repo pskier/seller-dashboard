@@ -5,9 +5,14 @@ import Header from '../organisms/Header';
 import { useTranslation } from 'react-i18next'; 
 import logoBtn from '../../assets/logo.png';
 
+<<<<<<< HEAD
 import { MenuItem } from '../molecules/MenuItem'; 
 
 const LayoutWrapper = styled.div`
+=======
+// Układ główny aplikacji z paskiem bocznym nawigacyjnym
+const Layout = styled.div`
+>>>>>>> ddec2de7455d0ac0ff32eea554bdb8a146744fb0
   display: flex;
   flex-direction: column;
   height: 100vh;

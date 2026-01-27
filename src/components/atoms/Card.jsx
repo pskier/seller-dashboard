@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// Karta z zaokrąglonymi rogami i cieniem oraz kolorem odpowiednim do motywu
 export const Card = styled.div`
   background: ${({ theme }) => theme.colors.surface};
   border: 1px solid ${({ theme }) => theme.colors.border};

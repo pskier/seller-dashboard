@@ -28,7 +28,7 @@ const DATA_TODAY = [
   { name: '14:00', turnover: 800, sold: 10, prevTurnover: 600, prevSold: 8 },
   { name: '16:00', turnover: 1200, sold: 15, prevTurnover: 900, prevSold: 11 } 
 ];
-
+// Widget wyświetlający wykres sprzedaży
 const SalesChartWidget = () => {
   const theme = useContext(ThemeContext);
   const { t } = useTranslation();
@@ -44,6 +44,7 @@ const SalesChartWidget = () => {
 
   return (
     <Card>
+<<<<<<< HEAD
       <CardTitle>{t('chart_title')}</CardTitle>
         <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
@@ -78,6 +79,19 @@ const SalesChartWidget = () => {
                {compare && <Line type="monotone" dataKey={dataKeyPrev} stroke="#9CA3AF" strokeWidth={2} strokeDasharray="5 5" dot={{r: 3}} name="Poprzedni okres" />}
             </LineChart>
           )}
+=======
+      <CardTitle><BarChart3 size={20}/> {t('chart')}</CardTitle>
+      <div style={{ height: 300, width: '100%' }}>
+        <ResponsiveContainer>
+          <AreaChart data={data}>
+            <XAxis dataKey="name" stroke={theme.colors.textSecondary} />
+            <YAxis stroke={theme.colors.textSecondary} />
+            <Tooltip 
+              contentStyle={{ backgroundColor: theme.colors.surface, borderRadius: 8 }} 
+            />
+            <Area type="monotone" dataKey="value" stroke={theme.colors.primary} fill={theme.colors.primary} fillOpacity={0.1} />
+          </AreaChart>
+>>>>>>> ddec2de7455d0ac0ff32eea554bdb8a146744fb0
         </ResponsiveContainer>
       </ChartWrapper>
 

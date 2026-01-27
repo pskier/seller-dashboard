@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Card, CardTitle } from '../atoms/Card';
+<<<<<<< HEAD
 import { StatCard } from '../molecules/StatCard';
 import { Send, Banknote, RotateCcw } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +13,10 @@ const Container = styled.div`
   flex: 1;
 `;
 
+=======
+import { StatItem } from '../molecules/StatItem';
+// Widget wyświetlający podsumowanie zamówień
+>>>>>>> ddec2de7455d0ac0ff32eea554bdb8a146744fb0
 const OrdersWidget = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();

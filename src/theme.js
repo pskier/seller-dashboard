@@ -1,3 +1,4 @@
+// Paleta kolorów
 export const lightTheme = {
   mode: 'light',
   colors: {
