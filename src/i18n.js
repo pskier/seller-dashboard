@@ -1,8 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-
-// Definicje zasobów językowych
 const resources = {
   pl: {
     translation: {
@@ -66,6 +64,8 @@ const resources = {
       "page_orders_filter": "Wybrana kategoria: ",
       "page_quality_title": "Szczegóły Jakości Sprzedaży",
       "page_reviews_title": "Wszystkie Opinie",
+
+      //filtry
       "filter_all": "Wszystkie",
       "filter_unpaid": "Nieopłacone",
       "filter_unsent": "Niewysłane",
@@ -75,6 +75,7 @@ const resources = {
       "filter_negative": "Negatywne",
       "sort_most_bought": "Najczęściej kupowane",
       "sort_least_bought": "Najrzadziej kupowane",
+
       "col_views": "Wyświetlenia", 
       "chart_measure_turnover": "Obrót",
       "chart_measure_sold": "Sprzedane sztuki",
@@ -82,7 +83,12 @@ const resources = {
       "chart_range_week": "Obecny tydzień",
       "chart_range_prev_week": "Poprzedni tydzień",
       "chart_type_bar": "Słupkowy",
-      "chart_type_line": "Liniowy"
+      "chart_type_line": "Liniowy",
+      
+      // komunikaty
+      "msg_no_orders": "Brak zamówień? Skorzystaj z naszych usług promocyjnych!",
+      "msg_no_reviews": "Brak opinii kupujących.",
+      "msg_no_offers": "Brak ofert do wyświetlenia."
     }
   },
   en: {
@@ -147,6 +153,8 @@ const resources = {
       "page_orders_filter": "Selected category: ",
       "page_quality_title": "Sales Quality Details",
       "page_reviews_title": "All Reviews",
+
+      // filters
       "filter_all": "All",
       "filter_unpaid": "Unpaid",
       "filter_unsent": "Unsent",
@@ -154,6 +162,8 @@ const resources = {
       "filter_all": "All",
       "filter_positive": "Positive",
       "filter_negative": "Negative",
+
+      // messages
       "msg_no_orders": "No orders? Use our promotion services!",
       "msg_no_reviews": "No buyer reviews yet.",
       "msg_no_offers": "No offers to display.",

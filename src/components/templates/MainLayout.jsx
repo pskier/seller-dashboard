@@ -55,6 +55,8 @@ const LogoImage = styled.img`
   height: 64px;       
   object-fit: contain; 
   margin-bottom: 8px;
+  filter: ${({ theme }) => theme.mode === 'dark' ? 'brightness(0) invert(1)' : 'none'};
+  transition: filter 0.3s ease;
 `;
 
 const MenuList = styled.nav`

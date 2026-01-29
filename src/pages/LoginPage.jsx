@@ -36,6 +36,8 @@ const BigLogo = styled.img`
   height: 120px;
   object-fit: contain;
   margin-bottom: 16px;
+  filter: ${({ theme }) => theme.mode === 'dark' ? 'brightness(0) invert(1)' : 'none'};
+  transition: filter 0.3s ease;
 `;
 
 const Title = styled.h1`
