@@ -5,7 +5,6 @@ import {
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
 
-// IMPORTY ATOMÓW
 import { Card, CardTitle } from '../atoms/Card';
 import { Select } from '../atoms/Select'; 
 import { Checkbox } from '../atoms/Checkbox';  

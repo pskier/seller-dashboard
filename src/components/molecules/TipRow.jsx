@@ -27,7 +27,7 @@ const Text = styled.span`
 
 export const TipRow = ({ content }) => (
   <Wrapper>
-    <Lightbulb size={20} color="#F59E0B" /> {/* Żarówka ma stały kolor ostrzegawczy/żółty */}
+    <Lightbulb size={20} color="#F59E0B" />
     <Text>{content}</Text>
     <ArrowRight size={16} />
   </Wrapper>

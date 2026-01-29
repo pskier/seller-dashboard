@@ -31,7 +31,7 @@ const OrdersPage = () => {
           {t('page_orders_filter')} {t(filterType)}
         </FilterInfo>
 
-        <p>Tu będzie tabela z zamówieniami (uproszczona).</p>
+        <p>tabela z zamówieniami (Widok uproszczony).</p>
       </Card>
     </PageWrapper>
   );

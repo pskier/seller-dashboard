@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   width: 100%;
-  padding: 14px 14px 14px 48px; /* Padding z lewej na ikonę */
+  padding: 14px 14px 14px 48px; 
   border: 2px solid ${({ theme }) => theme.colors.border};
   background: ${({ theme }) => theme.colors.bg};
   color: ${({ theme }) => theme.colors.text};

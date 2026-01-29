@@ -49,9 +49,6 @@ const DashboardPage = () => {
             <ReviewsWidget />
         </FixedWidget>
       </Column>
-
-
-      {/* PRAWA KOLUMNA */}
       <Column>
         {/* 1. Zamówienia*/}
         <FixedWidget $px={280}>
